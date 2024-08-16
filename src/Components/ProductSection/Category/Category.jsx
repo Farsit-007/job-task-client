@@ -50,7 +50,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
         <>
             <div className="dropdown  w-72 md:w-48 lg:w-52">
                 <div tabIndex={0} role="button" className="btn m-1 flex bg-white justify-between items-center">All Category <IoIosArrowDown /></div>
-                <ul tabIndex={0} className="dropdown-content bg-base-100 rounded-box z-[1] w-56 md:w-96 lg:min-w-[600px] p-2 shadow">
+                <ul tabIndex={0} className="dropdown-content bg-base-100 rounded-box z-[1] w-56 md:w-[430px] lg:min-w-[600px] p-2 shadow">
                     <div>
                         <p className="my-2 text-lg font-bold text-[#017a5c]">* Brand Name</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
