@@ -7,7 +7,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
     const { data: Brands = [], isLoading } = useQuery({
         queryKey: ['Brands'],
         queryFn: async () => {
-            const { data } = await axios(`http://localhost:5000/All-brand`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/All-brand`);
             return data;
         }
     });
@@ -15,7 +15,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
     const { data: Categories = [] } = useQuery({
         queryKey: ['Categories'],
         queryFn: async () => {
-            const { data } = await axios(`http://localhost:5000/All-category`);
+            const { data } = await axios(`${import.meta.env.VITE_API_URL}/All-category`);
             return data;
         }
     });
