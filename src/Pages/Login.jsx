@@ -40,7 +40,7 @@ const Login = () => {
             .then(result => {
                 toast.success("Logged in successfully")
                 navigate(location.state ? location.state : '/')
-            })
+            }) 
             .catch(error => {
                 if (error.message) {
                     toast.error("You have already sign in with same email")
@@ -50,7 +50,7 @@ const Login = () => {
     return (
         <>
             <div className="flex justify-center items-center">
-                <div className="flex flex-col md:w-[450px] animate__animated animate__zoomIn mt-8 p-10 pb-4 pt-2 rounded-xl text-white bg-opacity-5 backdrop-blur-3xl bg-[#b7004f3d]">
+                <div className="flex flex-col md:w-[450px] animate__animated animate__zoomIn my-8 p-10 pb-4 pt-2 rounded-xl text-white bg-opacity-3 backdrop-blur-3xl  bg-[#017a5c]">
                     <div className="mb-4 text-center border-b-2">
                         <h1 className="my-2 text-3xl font-bold  ">Login your account</h1>
                     </div>
@@ -58,7 +58,7 @@ const Login = () => {
                         <div className="space-y-2">
                             <div>
                                 <label htmlFor="email" className="block mb-2   text-sm">Email address</label>
-                                <input type="email" placeholder="Enter your email address" className="w-full px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent  "  {...register("userEmail",
+                                <input type="email" placeholder="Enter your email address" className="w-full px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent text-white "  {...register("userEmail",
                                     {
                                         required: true,
                                         pattern: {
@@ -77,7 +77,7 @@ const Login = () => {
 
                                 </div>
                                 <div className="relative">
-                                    <input type={show ? "text" : "password"} placeholder="Enter your password" className="w-full outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent  "
+                                    <input type={show ? "text" : "password"} placeholder="Enter your password" className="w-full text-white outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent  "
                                         {...register("userPassword",
                                             {
                                                 required: true,
@@ -102,10 +102,10 @@ const Login = () => {
                         </div>
                         <div className="space-y-2">
                             <div>
-                                <button type="submit" className="w-full px-8 py-2 font-bold rounded-md bg-[#b70050] text-xl ">Login</button>
+                                <button type="submit" className="w-full px-8 py-2 font-bold rounded-md bg-gradient-to-r from-[#08e07b] to-[#017a5c] text-xl ">Login</button>
                             </div>
                             <div>
-                                <button onClick={handleGoogle} className="w-full px-8 py-2 font-bold rounded-md bg-[#b70050] text-xl ">
+                                <button onClick={handleGoogle} className="w-full px-8 py-2 font-bold rounded-md bg-gradient-to-r from-[#08e07b] to-[#017a5c] text-xl ">
                                     <div className="flex items-center justify-center gap-3">
                                         <FcGoogle />
                                         <p>Google</p>
