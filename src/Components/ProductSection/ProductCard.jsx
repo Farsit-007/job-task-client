@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 const ProductCard = ({ p }) => {
     return (
-        <div className="card card-compact bg-base-100 shadow-xl">
+        <div className="card card-compact bg-base-100 shadow-xl shadow-[#08e07b79]">
             <div className="relative">
                 <figure className="" style={{ height: '220px', width: '100%', overflow: 'hidden' }}>
                     <img
