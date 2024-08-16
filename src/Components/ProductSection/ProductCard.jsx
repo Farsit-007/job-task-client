@@ -24,7 +24,7 @@ const ProductCard = ({ p }) => {
                     </div>
                 </div>
 
-                <p>{p.description.slice(0, 90)}.....</p>
+                <p>{p.description.slice(0, 80)}.....</p>
                 <div className="flex items-center gap-2"> 
                     <h1 className="text-lg font-semibold">Brand : </h1>
                 <div className="border-2 border-[#08e07b] rounded-md p-1">
