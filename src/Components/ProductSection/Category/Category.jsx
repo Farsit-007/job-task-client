@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
+import { IoIosArrowDown } from "react-icons/io";
 const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selectedCategories, selectedBrands, setMinPrice, setMaxPrice, setMinPriceFocused, setMaxPriceFocused, minPrice, maxPrice,handleClear }) => {
 
     const { data: Brands = [], isLoading } = useQuery({
@@ -47,8 +48,8 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
 
     return (
         <>
-            <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn m-1">Click</div>
+            <div className="dropdown  w-72 md:w-48 lg:w-52">
+                <div tabIndex={0} role="button" className="btn m-1 flex bg-white justify-between items-center">All Category <IoIosArrowDown /></div>
                 <ul tabIndex={0} className="dropdown-content bg-base-100 rounded-box z-[1] w-48 md:w-96 lg:min-w-[600px] p-2 shadow">
                     <div>
                         <p className="my-2">Brand Name</p>
@@ -114,10 +115,10 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
                         </div>
                     </div>
                     <div className="flex justify-between mt-4">
-                        <button className="btn btn-primary" onClick={handleClear}>
+                        <button className="btn bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleClear}>
                             Clear All
                         </button>
-                        <button className="btn btn-primary" onClick={handleApply}>
+                        <button className="btn bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleApply}>
                             Apply
                         </button>
                     </div>

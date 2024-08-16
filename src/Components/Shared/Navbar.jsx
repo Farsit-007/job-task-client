@@ -1,21 +1,41 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import logo from "./../../assets/im.png"
+import { IoCartOutline } from "react-icons/io5";
 const Navbar = () => {
-    const {user,logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const Links = (
         <>
+            <li className="text-lg font-semibold mr-2 uppercase"><NavLink
+                className={({ isActive }) =>
+                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    }`
+                }
+                to='/offer'>Offer's</NavLink></li>
+            <li className="text-lg font-semibold mr-2 uppercase"><NavLink
+                className={({ isActive }) =>
+                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    }`
+                }
+                to='/about'>About Us</NavLink></li>
+                <li className="text-lg font-semibold mr-2 uppercase"><NavLink
+                className={({ isActive }) =>
+                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    }`
+                }
+                to='/cart'>Cart <IoCartOutline size={30}/></NavLink></li>
         </>
     );
-    const handleLogout = ()=>{
+    const handleLogout = () => {
         logOut()
     }
     return (
         <>
-            <div className="relative container mx-auto my-5">
-                <div className={`navbar bg-gradient-to-r from-[#5D0911] to-[#ac0000] rounded-full pr-10`}>
-                    <div className="navbar navbar-start">
+            <div className="relative ">
+                <div className={`navbar bg-gradient-to-r from-[#08e07b] to-[#017a5c] pr-10 lg:px-24`}>
+                    <div className="navbar navbar-start ">
                         <div className="dropdown text-white ">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,8 +48,8 @@ const Navbar = () => {
                         </div>
                         <div className="flex gap-3 items-center">
                             <Link to='/' className="text-xl text-white md:text-4xl font-extrabold">
-                                <div className="w-[190px] md:w-[280px]">
-                                    {/* <img src={logo} alt="" /> */}
+                                <div className="w-[100px] md:w-[150px] ">
+                                    <img src={logo} alt="" />
                                 </div>
                             </Link>
                         </div>
@@ -46,12 +66,12 @@ const Navbar = () => {
                                 <div className="dropdown dropdown-end border-2 rounded-full">
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="rounded-full flex justify-center items-center">
-                                        <IoPersonCircleOutline size={40}/>
+                                            <IoPersonCircleOutline size={40} />
                                         </div>
                                     </div>
                                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box">
                                         <li><Link to='/login'
-                                             onClick={handleLogout}
+                                            onClick={handleLogout}
                                             className="uppercase">Logout</Link></li>
                                     </ul>
                                 </div>

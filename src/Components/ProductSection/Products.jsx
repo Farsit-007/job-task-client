@@ -10,11 +10,11 @@ import Searching from "./Searching/Searching";
 const Products = () => {
 
     //Search 
-    const [reloadbtn,setReloadBtn] = useState()
-    const[search,setSearch] = useState('')
+    const [reloadbtn, setReloadBtn] = useState()
+    const [search, setSearch] = useState('')
 
     //Sorting
-    const[sorting,setSorting] = useState('')
+    const [sorting, setSorting] = useState('')
 
     const [minPriceFocused, setMinPriceFocused] = useState(false);
     const [maxPriceFocused, setMaxPriceFocused] = useState(false);
@@ -35,7 +35,7 @@ const Products = () => {
     const [currentPage, setCurrentPage] = useState(1)
 
     //Search Button
-    const handleSearch = e=>{
+    const handleSearch = e => {
         e.preventDefault()
         const text = e.target.search.value
         setSearch(text)
@@ -59,6 +59,7 @@ const Products = () => {
         else {
             alert("Please interact with both min and max price fields before applying.");
         }
+        document.activeElement.blur(); 
     };
 
     //Fetch All Product
@@ -128,13 +129,14 @@ const Products = () => {
             maxPrice: ''
         });
         setCurrentPage(1);
+        document.activeElement.blur(); 
     }
 
     useEffect(() => {
         updateDataAndCount();
         refetch();
     }, [currentPage, productPerPage, filters, sorting, search]);
-    
+
     const TotalPages = Math.ceil(count / productPerPage);
     const pages = [...Array(TotalPages).keys()].map(e => e + 1);
 
@@ -144,28 +146,33 @@ const Products = () => {
         }
     };
 
-
-
-
     return (
         <>
-            <div className="flex justify-center gap-5 items-center">
-                <Category handleApply={handleApply} setSelectedBrands={setSelectedBrands}
-                    setSelectedCategories={setSelectedCategories} selectedCategories={selectedCategories} selectedBrands={selectedBrands} setMaxPrice={setMaxPrice}
-                    setMinPrice={setMinPrice} setMinPriceFocused={setMinPriceFocused} setMaxPriceFocused={setMaxPriceFocused} maxPrice={maxPrice} minPrice={minPrice}
-                    handleClear={handleClear}
-                ></Category>
-                <Sorting sorting={sorting} setSorting={setSorting}></Sorting>
-                <Searching handleSearch={handleSearch}
-                setReloadBtn={setReloadBtn}
-                reloadbtn={reloadbtn}
-                setSearch={setSearch}
-                ></Searching>
-                
+            <div className="md:w-[98%] lg:w-[60%] mx-auto my-5 ">
+                <div className="flex flex-col p-2 rounded-lg md:rounded-lg md:flex-row justify-center gap-2 md:gap-0 lg:gap-3 items-center bg-gradient-to-r from-[#08e07b] to-[#017a5c]">
+                    <div>
+                        <Category handleApply={handleApply} setSelectedBrands={setSelectedBrands}
+                            setSelectedCategories={setSelectedCategories} selectedCategories={selectedCategories} selectedBrands={selectedBrands} setMaxPrice={setMaxPrice}
+                            setMinPrice={setMinPrice} setMinPriceFocused={setMinPriceFocused} setMaxPriceFocused={setMaxPriceFocused} maxPrice={maxPrice} minPrice={minPrice}
+                            handleClear={handleClear}
+                        ></Category>
+                    </div>
+                    <div>
+                        <Sorting sorting={sorting} setSorting={setSorting}></Sorting>
+                    </div>
+                    <div>
+                        <Searching handleSearch={handleSearch}
+                            setReloadBtn={setReloadBtn}
+                            reloadbtn={reloadbtn}
+                            setSearch={setSearch}
+                        ></Searching>
+                    </div>
+
+                </div>
             </div>
 
 
-            <div className="max-w-6xl mx-auto py-10 px-4 lg:px-0  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="max-w-6xl mx-auto py-10 px-4 lg:px-0  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
                     products.map(p => <ProductCard key={p._id} p={p}></ProductCard>)
                 }
@@ -177,7 +184,7 @@ const Products = () => {
                     <button
                         disabled={currentPage === 1}
                         onClick={() => handleButton(currentPage - 1)}
-                        className='px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-[#5D0911] hover:text-white'>
+                        className='px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white'>
                         <div className='flex items-center -mx-1'>
                             <IoIosArrowBack />
                         </div>
@@ -189,8 +196,8 @@ const Products = () => {
                     <button
                         onClick={() => handleButton(btnNum)}
                         key={btnNum}
-                        className={`hidden ${currentPage === btnNum ? 'bg-[#5D0911] text-white' : ''}
-                 px-4 py-2 mx-1 transition-colors duration-300 transform rounded-full sm:inline hover:bg-[#5D0911] hover:text-white`}
+                        className={`hidden ${currentPage === btnNum ? 'bg-gradient-to-r from-[#08e07b] to-[#017a5c] text-white' : ''}
+                 px-4 py-2 mx-1 transition-colors duration-300 transform rounded-full sm:inline hover:bg-gradient-to-r from-[#08e07b] to-[#017a5c] hover:text-white`}
                     >
                         {btnNum}
                     </button>
@@ -201,7 +208,7 @@ const Products = () => {
                     <button
                         disabled={currentPage === TotalPages}
                         onClick={() => handleButton(currentPage + 1)}
-                        className='px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-[#5D0911] disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500'>
+                        className='px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500'>
                         <div className='flex items-center -mx-1'>
                             <IoIosArrowForward />
 

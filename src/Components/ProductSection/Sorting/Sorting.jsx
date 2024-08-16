@@ -6,7 +6,7 @@ const Sorting = ({sorting,setSorting}) => {
                 <select
                     onChange={e => setSorting(e.target.value)}
                     value={sorting}
-                    className='select  bg-[#5D0911] text-rose-100 font-bold text-lg'>
+                    className='select  w-72 md:w-48 lg:w-52 '>
                     <option value=''>Sort by</option>
                     <option value='acs'>Price Low to High</option>
                     <option value='dcs'>Price High to Low</option>
