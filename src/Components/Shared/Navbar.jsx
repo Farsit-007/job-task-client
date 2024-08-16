@@ -10,19 +10,19 @@ const Navbar = () => {
         <>
             <li className="text-lg font-semibold mr-2 uppercase"><NavLink
                 className={({ isActive }) =>
-                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    `transition-colors duration-300 transform hover:bg-base-100 rounded-md hover:text-[#017a5c] ${isActive ? 'bg-base-100 focus:bg-base-00 text-[#5D0911]' : 'text-white'
                     }`
                 }
                 to='/offer'>Offer's</NavLink></li>
             <li className="text-lg font-semibold mr-2 uppercase"><NavLink
                 className={({ isActive }) =>
-                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    `transition-colors duration-300 transform hover:bg-base-100 rounded-md hover:text-[#017a5c] ${isActive ? 'bg-base-100 focus:bg-base-00 text-[#5D0911]' : 'text-white'
                     }`
                 }
                 to='/about'>About Us</NavLink></li>
                 <li className="text-lg font-semibold mr-2 uppercase"><NavLink
                 className={({ isActive }) =>
-                    `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
+                    `transition-colors duration-300 transform hover:bg-base-100 rounded-md hover:text-[#017a5c] ${isActive ? 'bg-base-100 focus:bg-base-00 text-[#5D0911]' : 'text-white'
                     }`
                 }
                 to='/cart'>Cart <IoCartOutline size={30}/></NavLink></li>
