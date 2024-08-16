@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-
 const ProductCard = ({ p }) => {
     return (
         <div className="card card-compact bg-base-100 shadow-xl">

@@ -8,6 +8,7 @@ import Category from "./Category/Category";
 import Sorting from "./Sorting/Sorting";
 import Searching from "./Searching/Searching";
 import toast from "react-hot-toast";
+import Loader from "../Shared/Loader";
 const Products = () => {
 
     //Search 
@@ -17,6 +18,7 @@ const Products = () => {
     //Sorting
     const [sorting, setSorting] = useState('')
 
+    //Filter
     const [minPriceFocused, setMinPriceFocused] = useState(false);
     const [maxPriceFocused, setMaxPriceFocused] = useState(false);
     const [selectedBrands, setSelectedBrands] = useState([]);
@@ -30,7 +32,7 @@ const Products = () => {
         maxPrice: ''
     });
 
-
+    //Pagination
     const [productPerPage, setProduct] = useState(6)
     const [count, setCount] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
@@ -60,7 +62,7 @@ const Products = () => {
         else {
             toast.error("Please interact with both min and max price fields before applying.");
         }
-        document.activeElement.blur(); 
+        document.activeElement.blur();
     };
 
     //Fetch All Product
@@ -90,6 +92,7 @@ const Products = () => {
     });
 
 
+    //Update The Page 
     const updateDataAndCount = async () => {
         let countUrl = `${import.meta.env.VITE_API_URL}/products-count?page=${currentPage}&size=${productPerPage}&search=${search}`;
 
@@ -113,7 +116,7 @@ const Products = () => {
         setCount(data.count);
     };
 
-    //Category Clear
+    //Category Clear Button
     const handleClear = () => {
         setSelectedBrands([]);
         setSelectedCategories([]);
@@ -130,22 +133,29 @@ const Products = () => {
             maxPrice: ''
         });
         setCurrentPage(1);
-        document.activeElement.blur(); 
+        document.activeElement.blur();
     }
 
+    //Refetch
     useEffect(() => {
         updateDataAndCount();
         refetch();
     }, [currentPage, productPerPage, filters, sorting, search]);
 
+    //Counting the Pages
     const TotalPages = Math.ceil(count / productPerPage);
     const pages = [...Array(TotalPages).keys()].map(e => e + 1);
 
+    //Pagination Arrow Button
     const handleButton = (value) => {
         if (value >= 1 && value <= TotalPages) {
             setCurrentPage(value);
         }
     };
+
+    if(isLoading ){
+       return  <Loader></Loader>
+    }
 
     return (
         <>
@@ -168,10 +178,8 @@ const Products = () => {
                             setSearch={setSearch}
                         ></Searching>
                     </div>
-
                 </div>
             </div>
-
 
             <div className="max-w-6xl mx-auto py-10 px-4 lg:px-0  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
@@ -180,6 +188,7 @@ const Products = () => {
             </div>
             <div className='flex justify-center my-12'>
 
+                {/* Previous Button */}
                 {products.length > 0 &&
 
                     <button
@@ -205,6 +214,7 @@ const Products = () => {
                 ))}
 
 
+                {/* Next Button */}
                 {products.length > 0 &&
                     <button
                         disabled={currentPage === TotalPages}
@@ -212,7 +222,6 @@ const Products = () => {
                         className='px-4 py-2 mx-1  transition-colors duration-300 transform bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:hover:bg-gray-200 text-white disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500'>
                         <div className='flex items-center -mx-1'>
                             <IoIosArrowForward />
-
                         </div>
                     </button>
                 }

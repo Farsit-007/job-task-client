@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Home from "../Pages/Home";
 import Coming from "../Pages/Coming";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/coming',
-                element: <Coming></Coming>,
+                element: <PrivateRoute><Coming></Coming></PrivateRoute>,
             }
         ]
     },
