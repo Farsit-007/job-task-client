@@ -34,7 +34,7 @@ const ProductCard = ({ p }) => {
 
                 <div className="card-actions justify-between items-center">
                     <h1 className="text-xl font-bold text-[#017a5c]">$ {p.price}</h1>
-                    <Link to={`/public-p-details/${p._id}`} className=" px-2 btn transition-colors duration-300 transform  text-rose-100 badge bg-gradient-to-r from-[#08e07b] to-[#017a5c] hover:bg-rose-100 rounded-md text-xl ">Add to Cart</Link>
+                    <Link  className=" px-2 btn transition-colors duration-300 transform  text-rose-100 badge bg-gradient-to-r from-[#08e07b] to-[#017a5c] hover:bg-rose-100 rounded-md text-xl ">Add to Cart</Link>
                 </div>
             </div>
         </div>
