@@ -21,9 +21,9 @@ const Footer = () => {
                     <h6 className="footer-title">Company</h6>
                     <div className="flex gap-3">
                         <Link to='/' className="link link-hover font-semibold">Home</Link>
-                        <Link to='/donationreq' className="link link-hover font-semibold">Donation Requests</Link>
-                        <Link to='/blogpost' className="link link-hover font-semibold">Blogs</Link>
-                        <Link to='/funding' className="link link-hover font-semibold">Funding</Link>
+                        <Link to='/coming' className="link link-hover font-semibold">Offers</Link>
+                        <Link to='/coming' className="link link-hover font-semibold">About Us</Link>
+                        <Link to='/coming' className="link link-hover font-semibold">Cart</Link>
                     </div>
                 </nav>
                 <nav className='text-white'>

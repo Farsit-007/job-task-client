@@ -52,7 +52,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
                 <div tabIndex={0} role="button" className="btn m-1 flex bg-white justify-between items-center">All Category <IoIosArrowDown /></div>
                 <ul tabIndex={0} className="dropdown-content bg-base-100 rounded-box z-[1] w-48 md:w-96 lg:min-w-[600px] p-2 shadow">
                     <div>
-                        <p className="my-2">Brand Name</p>
+                        <p className="my-2 text-lg font-bold text-[#017a5c]">* Brand Name</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {Brands.map(b => (
                                 <div key={b._id} className="form-control">
@@ -71,7 +71,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
                         </div>
                     </div>
                     <div>
-                        <p className="my-2">Category Name</p>
+                        <p className="my-2 text-lg font-bold text-[#017a5c]">* Category Name</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {Categories.map(c => (
                                 <div key={c._id} className="form-control">
@@ -90,7 +90,7 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
                         </div>
                     </div>
                     <div>
-                        <p className="my-2">Price Range</p>
+                        <p className="my-2 text-lg font-bold text-[#017a5c]">* Price Range</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <input
@@ -115,10 +115,10 @@ const Category = ({ handleApply, setSelectedBrands, setSelectedCategories, selec
                         </div>
                     </div>
                     <div className="flex justify-between mt-4">
-                        <button className="btn bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleClear}>
+                        <button className="btn text-white bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleClear}>
                             Clear All
                         </button>
-                        <button className="btn bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleApply}>
+                        <button className="btn text-white bg-gradient-to-r from-[#08e07b] to-[#017a5c]" onClick={handleApply}>
                             Apply
                         </button>
                     </div>
