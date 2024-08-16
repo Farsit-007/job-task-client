@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Category from "./Category/Category";
 import Sorting from "./Sorting/Sorting";
 import Searching from "./Searching/Searching";
+import toast from "react-hot-toast";
 const Products = () => {
 
     //Search 
@@ -54,10 +55,10 @@ const Products = () => {
             });
             setCurrentPage(1);
         } else if (minPriceFocused && !maxPriceFocused) {
-            alert("Please interact with both min and max price fields before applying.");
+            toast.error("Please interact with both min and max price fields before applying.");
         }
         else {
-            alert("Please interact with both min and max price fields before applying.");
+            toast.error("Please interact with both min and max price fields before applying.");
         }
         document.activeElement.blur(); 
     };
@@ -184,7 +185,7 @@ const Products = () => {
                     <button
                         disabled={currentPage === 1}
                         onClick={() => handleButton(currentPage - 1)}
-                        className='px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white'>
+                        className='px-4 py-2 mx-1 text-white disabled:text-gray-500 capitalize bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500  hover:text-white'>
                         <div className='flex items-center -mx-1'>
                             <IoIosArrowBack />
                         </div>
@@ -208,7 +209,7 @@ const Products = () => {
                     <button
                         disabled={currentPage === TotalPages}
                         onClick={() => handleButton(currentPage + 1)}
-                        className='px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500'>
+                        className='px-4 py-2 mx-1  transition-colors duration-300 transform bg-gradient-to-r from-[#08e07b] to-[#017a5c] rounded-md disabled:hover:bg-gray-200 text-white disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500'>
                         <div className='flex items-center -mx-1'>
                             <IoIosArrowForward />
 
